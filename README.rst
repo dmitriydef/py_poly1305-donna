@@ -72,6 +72,6 @@ python setup.py install
 
 NOTES
 ======
-py_poly1305 does not offer an API for incremental update and HMAC
+py_poly1305_donna does not offer an API for incremental update and HMAC
 calculation.
 
