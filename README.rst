@@ -2,8 +2,7 @@
 py_poly1305_donna
 ==================
 
-Python extension module wrapping poly1305-donna by floodberry
-(https://github.com/floodyberry/poly1305-donna)
+Fork of poly1305-donna by floodberry (https://github.com/floodyberry/poly1305-donna) adding a Python wrapper as an extension module
 
 What is a HMAC (Hash-based Message Authentication Code)?
 --------------------------------------------------------
