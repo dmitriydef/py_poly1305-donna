@@ -64,8 +64,7 @@ python setup.py install
 
 *GNU/Linux:*
 - Python
-  Tested on 2.7.6
-  Python 3.4.3 and pypy 2.7.10 (pypy 4.0.1): WIP (not working yet)
+  Tested on 2.7.6, 3.4.3, pypy 2.7.10 (pypy 4.0.1)
 - cffi >= 1.0.0
 - six
 - Python.h (libpython-dev on Debian-like systems)
