@@ -51,7 +51,7 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: Implementation :: PyPy',
-        'License :: Public Domain',
+        'License :: OSI Approved :: MIT License',
     ],
     install_requires=install_requires,
     packages=find_packages(),
