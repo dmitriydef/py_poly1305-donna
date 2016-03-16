@@ -1,12 +1,10 @@
 import sys
 import os
 from setuptools import setup, find_packages, Extension
-import setupext
 
 
 os.chdir(os.path.dirname(sys.argv[0]) or ".")
 
-# See help.txt for detailed help on different sections
 '''
 ==============================================================================
 PACKAGE DATA
@@ -38,15 +36,12 @@ classifiers = [
     'Programming Language :: Python :: Implementation :: PyPy',
     'License :: OSI Approved :: MIT License',
 ]
-zip_safe = True
+zip_safe = False
 
 
 '''
 ==============================================================================
 C EXTENSION DETAILS
-
-Put the C files in a dir under toplevel so that the C files can also be
-installed using data_dirs (see ADDITIONAL DATA FILES)
 ==============================================================================
 '''
 c_dir = 'floodberry.poly1305_donna'
@@ -68,12 +63,6 @@ ext_modules = [
 '''
 ==============================================================================
 ADDITIONAL DATA FILES
----------------------
-
-- set data_dirs to LIST of directories under toplevel that
-    you want to include
-
-see help.txt for more details
 ==============================================================================
 '''
 
@@ -81,15 +70,6 @@ data_dirs = [
     'doc',
     'floodberry.poly1305_donna',
 ]
-
-
-'''
-==============================================================================
-CUSTOM STEPS
-
-see help.txt for more details
-==============================================================================
-'''
 
 
 '''
@@ -107,11 +87,35 @@ ADDL_KWARGS = dict(
 ==============================================================================
 '''
 
+
+def get_dirtree(module_name, dirlist=[]):
+    '''
+    module_name-->str: must be name of a dir under current working dir
+    dirlist-->list of str: must all be names of dirs under module_name
+    '''
+    ret = []
+    curdir = os.getcwd()
+    if not os.path.isdir(module_name):
+        return ret
+    os.chdir(module_name)
+    try:
+        for dirname in dirlist:
+            if not os.path.isdir(dirname):
+                continue
+            for (d, ds, fs) in os.walk(dirname):
+                for f in fs:
+                    ret += [os.path.join(d, f)]
+        return ret
+    except:
+        return ret
+    finally:
+        os.chdir(curdir)
+
+
 # Required keywords
 kwdict = dict(
     name=toplevel,
     version=version,
-    install_requires=install_requires,
     packages=packages,
     description=description,
     license=license,
@@ -119,6 +123,8 @@ kwdict = dict(
 
 # Optional keywords
 kwdict.update(dict(
+    # requires=globals().get('requires,', []),
+    install_requires=globals().get('install_requires,', []),
     long_description=globals().get('long_description', ''),
     url=globals().get('url', ''),
     download_url=globals().get('download_url', ''),
@@ -132,9 +138,6 @@ kwdict.update(dict(
 ))
 kwdict.update(ADDL_KWARGS)
 
-# To support custom step triggers
-kwdict['cmdclass'] = setupext.get_cmdclass()
-
 # More optional keywords, but which are added conditionally
 ext_modules = globals().get('ext_modules', [])
 if ext_modules:
@@ -144,7 +147,7 @@ dirlist = globals().get('data_dirs', None)
 if isinstance(dirlist, list):
     kwdict['package_dir'] = {toplevel: toplevel}
     kwdict['package_data'] = {toplevel:
-                              setupext.get_dirtree(toplevel, dirlist)}
+                              get_dirtree(toplevel, dirlist)}
 
 
 setup(**kwdict)
