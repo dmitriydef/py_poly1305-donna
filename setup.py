@@ -19,6 +19,7 @@ description = toplevel
 install_requires = [
     'cffi>=1.0.0',
     'six>=1.9.0',
+    'setupext>=0.2',
 ]
 packages = find_packages()
 license = 'License :: OSI Approved :: MIT License'
