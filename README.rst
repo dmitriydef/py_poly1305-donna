@@ -31,22 +31,24 @@ forked from poly1305-donna from https://github.com/floodyberry/poly1305-donna
 
 .. code-block:: python
 
-    p = Poly1305
-    print('Power-On Self Test result: ' + str(p.self_test()))
+    from poly1305_donna.poly1305 import (
+        self_test, get_key, authenticate, verify,
+    )
+    print('Power-On Self Test result: ' + str(self_test()))
     msg = 'Hello world'
     print('\nTest class methods - authenticate, verify')
-    kr = p.get_key()
-    auth = p.authenticate(kr, msg)
+    kr = get_key()
+    auth = authenticate(kr, msg)
 
-    bad_kr = p.get_key()
+    bad_kr = get_key()
     bad_msg = msg + '1'
-    bad_auth = p.authenticate(kr, bad_msg)
+    bad_auth = authenticate(kr, bad_msg)
 
     print('Good: %s\nBad auth: %s\nBad kr: %s\nBad msg: %s' % (
-        str(p.verify(auth, kr, msg)),
-        str(p.verify(bad_auth, kr, msg)),
-        str(p.verify(auth, bad_kr, msg)),
-        str(p.verify(auth, kr, bad_msg))
+        str(verify(auth, kr, msg)),
+        str(verify(bad_auth, kr, msg)),
+        str(verify(auth, bad_kr, msg)),
+        str(verify(auth, kr, bad_msg))
     ))
 
 
