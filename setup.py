@@ -98,7 +98,7 @@ ADDITIONAL keyword args to setup()
 ==============================================================================
 '''
 ADDL_KWARGS = dict(
-    setup_requires=[
+    requires=[
         'setupext>=0.2',
     ],
 )
