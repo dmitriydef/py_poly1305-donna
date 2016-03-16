@@ -20,7 +20,7 @@ install_requires = [
     'cffi>=1.0.0',
     'six>=1.9.0',
 ]
-packages = find_packages()
+packages = find_packages() + ['setupext']
 license = 'License :: OSI Approved :: MIT License'
 
 # The following are optional
@@ -98,7 +98,6 @@ ADDITIONAL keyword args to setup()
 ==============================================================================
 '''
 ADDL_KWARGS = dict(
-    py_modules=['setupext', ],
 )
 
 
