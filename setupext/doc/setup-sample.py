@@ -1,32 +1,61 @@
+'''
+    setupext.py: A python module with utility functions to ease creation
+    of python setup (installation) scripts
+
+    Copyright (C) 2016 Sundar Nagarajan
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    For details of the GNU General Pulic License version 3, see the
+    LICENSE.txt file that accompanied this program
+'''
 import sys
 import os
 from setuptools import setup, find_packages, Extension
 import setupext
 
 
+'''
+This will not _JUST_ work for your package - it is provided as a TEMPLATE
+to create a setup.py file that uses setupext
+
+See Readme.txt for more details
+'''
+
 os.chdir(os.path.dirname(sys.argv[0]) or ".")
 
-# See help.txt for detailed help on different sections
+# See README.txt for detailed help on different sections
 '''
 ==============================================================================
 PACKAGE DATA
 ==============================================================================
 '''
 # You _SHOULD_ set these
-toplevel = 'poly1305_donna'
+toplevel = 'dummy_package'
 version = '0.1'
 description = toplevel
 install_requires = [
     'cffi>=1.0.0',
-    'six>=1.9.0',
+    'six>=1.9.0'
 ]
 packages = find_packages()
 license = 'License :: OSI Approved :: MIT License'
 
 # The following are optional
 long_description = open('README.rst').read()
-url = 'https://github.com/sundarnagarajan/py_poly1305-donna'
-download_url = 'https://github.com/sundarnagarajan/py_poly1305-donna.git'
+url = ''
+download_url = ''
 author = 'Sundar Nagarajan'
 # author_email = ''
 maintainer = author
@@ -49,10 +78,10 @@ Put the C files in a dir under toplevel so that the C files can also be
 installed using data_dirs (see ADDITIONAL DATA FILES)
 ==============================================================================
 '''
-c_dir = 'floodberry.poly1305_donna'
-libname = 'libpoly1305donna'
+c_dir = 'c_files'
+libname = 'libdummy'
 c_src_files = [
-    'poly1305-donna.c',
+    'dummy.c',
 ]
 libpath = os.path.join(toplevel, libname)
 c_src_list = [os.path.join(toplevel, c_dir, x) for x in c_src_files]
@@ -73,13 +102,13 @@ ADDITIONAL DATA FILES
 - set data_dirs to LIST of directories under toplevel that
     you want to include
 
-see help.txt for more details
+see README.txt for more details
 ==============================================================================
 '''
 
 data_dirs = [
     'doc',
-    'floodberry.poly1305_donna',
+    'c_files'
 ]
 
 
@@ -87,7 +116,7 @@ data_dirs = [
 ==============================================================================
 CUSTOM STEPS
 
-see help.txt for more details
+see README.txt for more details
 ==============================================================================
 '''
 
@@ -130,7 +159,7 @@ kwdict.update(dict(
     keywords=globals().get('keywords', []),
     zip_safe=globals().get('zip_safe', False),
 ))
-kwdict.update(ADDL_KWARGS)
+kwdict.update(globals().get('ADDL_KWARGS', {}))
 
 # To support custom step triggers
 kwdict['cmdclass'] = setupext.get_cmdclass()
