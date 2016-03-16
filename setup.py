@@ -98,7 +98,7 @@ ADDITIONAL keyword args to setup()
 ==============================================================================
 '''
 ADDL_KWARGS = dict(
-    py_modules=[setupext,],
+    py_modules=['setupext', ],
 )
 
 
