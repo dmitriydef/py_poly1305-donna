@@ -20,7 +20,7 @@ install_requires = [
     'cffi>=1.0.0',
     'six>=1.9.0',
 ]
-packages = find_packages() + ['setupext']
+packages = find_packages()
 license = 'License :: OSI Approved :: MIT License'
 
 # The following are optional
