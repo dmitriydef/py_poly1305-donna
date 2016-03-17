@@ -12,7 +12,7 @@ PACKAGE DATA
 '''
 # You _SHOULD_ set these
 name = 'poly1305_donna'
-version = '0.11'
+version = '0.11.1'
 description = name
 install_requires = [
     'cffi_utils',
