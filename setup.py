@@ -12,7 +12,9 @@ PACKAGE DATA
 '''
 # You _SHOULD_ set these
 name = 'poly1305_donna'
-version = '0.11.2'
+version = open('ver.txt', 'r').read().splitlines()[0]
+url = 'https://github.com/sundarnagarajan/py_poly1305-donna'
+download_url = '%s/tree/%s' % (url, version)
 description = name
 install_requires = [
     'cffi_utils',
@@ -22,8 +24,6 @@ license = 'License :: OSI Approved :: MIT License'
 
 # The following are optional
 long_description = open('README.rst').read()
-url = 'https://github.com/sundarnagarajan/py_poly1305-donna'
-download_url = 'https://github.com/sundarnagarajan/py_poly1305-donna.git'
 author = 'Sundar Nagarajan'
 # author_email = ''
 maintainer = author
