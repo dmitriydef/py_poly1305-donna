@@ -23,7 +23,10 @@ packages = find_packages()
 license = 'License :: OSI Approved :: MIT License'
 
 # The following are optional
-long_description = open('README.rst').read()
+try:
+    long_description = open('README_generated.rst').read()
+except:
+    long_description = description
 author = 'Sundar Nagarajan'
 # author_email = ''
 maintainer = author
