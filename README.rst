@@ -50,7 +50,7 @@ https://github.com/floodyberry/poly1305-donna
 
 .. code:: python
 
-    from poly1305_donna.poly1305 import (
+    from poly1305_donna import (
         self_test, get_key, authenticate, verify,
     )
     print('Power-On Self Test result: ' + str(self_test()))

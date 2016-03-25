@@ -12,7 +12,7 @@ PACKAGE DATA
 '''
 # You _SHOULD_ set these
 name = 'poly1305_donna'
-version = '0.11.7'   # oldver: '0.11.6'
+version = '0.11.8'   # oldver: '0.11.7'
 url = 'https://github.com/sundarnagarajan/py_poly1305-donna'
 download_url = '%s/tree/%s' % (url, version)
 description = name

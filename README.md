@@ -27,7 +27,7 @@ The 'floodberry.poly1305\_donna' directory contains the unmodified source code f
 **EXAMPLES:**
 
 ~~~~ {.sourceCode .python}
-from poly1305_donna.poly1305 import (
+from poly1305_donna import (
     self_test, get_key, authenticate, verify,
 )
 print('Power-On Self Test result: ' + str(self_test()))
