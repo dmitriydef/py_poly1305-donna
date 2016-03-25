@@ -70,6 +70,18 @@ https://github.com/floodyberry/poly1305-donna
         str(verify(auth, kr, bad_msg))
     ))
 
+Alternately, run the test script that is shipped: 
+
+.. code-block:: python
+
+    python -m poly1305\_aes.test
+
+To run a simple benchmark:
+
+.. code:: python
+
+    python -m poly1305_aes.benchmark
+
 **INSTALLATION:**
 
 Using pip:

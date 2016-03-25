@@ -48,17 +48,29 @@ print('Good: %s\nBad auth: %s\nBad kr: %s\nBad msg: %s' % (
 ))
 ~~~~
 
+Alternately, run the test script that is shipped:
+
+~~~~ {.sourceCode .python}
+python -m poly1305\_aes.test
+~~~~
+
+To run a simple benchmark:
+
+~~~~ {.sourceCode .python}
+python -m poly1305_aes.benchmark
+~~~~
+
 **INSTALLATION:**
 
 Using pip:
 
-pip install 'git+https://github.com/sundarnagarajan/py\_poly1305-donna.git'
+pip install 'git+[<https://github.com/sundarnagarajan/py>\\\_poly1305-donna.git](https://github.com/sundarnagarajan/py\_poly1305-donna.git)'
 
 Using setup.py: python setup.py install
 
 **BUILD / INSTALL REQUIREMENTS:**
 
-*GNU/Linux:* - Python Tested on 2.7.6, 3.4.3, pypy 2.7.10 (pypy 4.0.1) - cffi \>= 1.0.0 - six - Python.h (libpython-dev on Debian-like systems) - gcc (build-essential on Debian-like systems)
+*GNU/Linux:* - Python Tested on 2.7.6, 3.4.3, pypy 2.7.10 (pypy 4.0.1) -cffi \>= 1.0.0 - six - Python.h (libpython-dev on Debian-like systems) -gcc (build-essential on Debian-like systems)
 
 ### NOTES
 
