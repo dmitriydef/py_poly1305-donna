@@ -1,4 +1,4 @@
-py\_poly1305\_donna
+py_poly1305_donna
 ===================
 
 Fork of poly1305-donna by floodberry
@@ -42,7 +42,7 @@ LICENSE:
 Following floodberry's code license, this code is also released into the
 public domain. See LICENSE file.
 
-The 'floodberry.poly1305\_donna' directory contains the unmodified
+The 'floodberry.poly1305_donna' directory contains the unmodified
 source code forked from poly1305-donna from
 https://github.com/floodyberry/poly1305-donna
 
@@ -87,7 +87,7 @@ To run a simple benchmark:
 Using pip:
 
 pip install
-'git+`https://github.com/sundarnagarajan/py\\\_poly1305-donna.git <https://github.com/sundarnagarajan/py\_poly1305-donna.git>`__'
+'git+`https://github.com/sundarnagarajan/py_poly1305-donna.git <https://github.com/sundarnagarajan/py_poly1305-donna.git>`__'
 
 Using setup.py: python setup.py install
 
@@ -100,5 +100,5 @@ gcc (build-essential on Debian-like systems)
 NOTES
 ~~~~~
 
-py\_poly1305\_donna does not offer an API for incremental update and
+py_poly1305_donna does not offer an API for incremental update and
 HMAC calculation.

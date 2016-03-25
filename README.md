@@ -64,7 +64,7 @@ python -m poly1305_donna.benchmark
 
 Using pip:
 
-pip install 'git+[<https://github.com/sundarnagarajan/py>\\\_poly1305-donna.git](https://github.com/sundarnagarajan/py\_poly1305-donna.git)'
+pip install 'git+[<https://github.com/sundarnagarajan/py_poly1305-donna.git>](https://github.com/sundarnagarajan/py_poly1305-donna.git)'
 
 Using setup.py: python setup.py install
 
