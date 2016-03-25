@@ -51,13 +51,13 @@ print('Good: %s\nBad auth: %s\nBad kr: %s\nBad msg: %s' % (
 Alternately, run the test script that is shipped:
 
 ~~~~ {.sourceCode .python}
-python -m poly1305\_aes.test
+python -m poly1305_donna.test
 ~~~~
 
 To run a simple benchmark:
 
 ~~~~ {.sourceCode .python}
-python -m poly1305_aes.benchmark
+python -m poly1305_donna.benchmark
 ~~~~
 
 **INSTALLATION:**

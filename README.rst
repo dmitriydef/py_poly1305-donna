@@ -74,13 +74,13 @@ Alternately, run the test script that is shipped:
 
 .. code-block:: python
 
-    python -m poly1305\_aes.test
+    python -m poly1305_donna.test
 
 To run a simple benchmark:
 
 .. code:: python
 
-    python -m poly1305_aes.benchmark
+    python -m poly1305_donna.benchmark
 
 **INSTALLATION:**
 
