@@ -12,7 +12,7 @@ PACKAGE DATA
 '''
 # You _SHOULD_ set these
 name = 'poly1305_donna'
-version = '0.11.9'   # oldver: '0.11.8'
+version = '0.11.10'   # oldver: '0.11.9'
 url = 'https://github.com/sundarnagarajan/py_poly1305-donna'
 download_url = '%s/tree/%s' % (url, version)
 description = name
@@ -24,7 +24,7 @@ license = 'License :: OSI Approved :: MIT License'
 
 # The following are optional
 try:
-    long_description = open('README_generated.rst').read()
+    long_description = open('README.rst').read()
 except:
     long_description = description
 author = 'Sundar Nagarajan'
