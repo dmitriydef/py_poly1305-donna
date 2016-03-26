@@ -48,7 +48,7 @@ c_src_files = [
     'poly1305-donna.c',
 ]
 libpath = os.path.join(name, libname)
-c_src_list = [os.path.join(name, c_dir, x) for x in c_src_files]
+c_src_list = [os.path.join(c_dir, x) for x in c_src_files]
 ext_modules = [
     Extension(
         name=libpath,
