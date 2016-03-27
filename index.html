@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Py poly1305-donna by sundarnagarajan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Py poly1305-donna</h1>
+      <h2 class="project-tagline">Python wrapper for floodberry/poly1305-donna HMAC</h2>
+      <a href="https://github.com/sundarnagarajan/py_poly1305-donna" class="btn">View on GitHub</a>
+      <a href="https://github.com/sundarnagarajan/py_poly1305-donna/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/sundarnagarajan/py_poly1305-donna/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="py_poly1305_donna" class="anchor" href="#py_poly1305_donna" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>py_poly1305_donna</h1>
+
+<p>Fork of poly1305-donna by floodberry (<a href="https://github.com/floodyberry/poly1305-donna">https://github.com/floodyberry/poly1305-donna</a>) adding a Python wrapper as an extension module</p>
+
+<h2>
+<a id="what-is-a-hmac-hash-based-message-authentication-code" class="anchor" href="#what-is-a-hmac-hash-based-message-authentication-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is a HMAC (Hash-based Message Authentication Code)?</h2>
+
+<p>From wikipedia (<a href="https://en.wikipedia.org/wiki/Hash-based_message_authentication_code">https://en.wikipedia.org/wiki/Hash-based_message_authentication_code</a>):</p>
+
+<p>In cryptography, a keyed-hash message authentication code (HMAC) is a specific construction for calculating a message authentication code (MAC) involving a cryptographic hash function in combination with a secret cryptographic key. As with any MAC, it may be used to simultaneously verify both the data integrity and the authentication of a message. Any cryptographic hash function, such as MD5 or SHA-1, may be used in the calculation of an HMAC; the resulting MAC algorithm is termed HMAC-MD5 or HMAC-SHA1 accordingly. The cryptographic strength of the HMAC depends upon the cryptographic strength of the underlying hash function, the size of its hash output, and on the size and quality of the key.</p>
+
+<h2>
+<a id="what-is-poly1305" class="anchor" href="#what-is-poly1305" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is poly1305?</h2>
+
+<p>From <a href="http://cr.yp.to/mac.html">http://cr.yp.to/mac.html</a>:</p>
+
+<p>Poly1305-AES is a state-of-the-art secret-key message-authentication code suitable for a wide variety of applications. Poly1305-AES computes a 16-byte authenticator of a message of any length, using a 16-byte nonce (unique message number) and a 32-byte secret key. Attackers can't modify or forge messages if the message sender transmits an authenticator along with each message and the message receiver checks each authenticator.</p>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LICENSE:</h1>
+
+<p>Following floodberry's code license, this code is also released into the public domain. See LICENSE file.</p>
+
+<p>The 'floodberry.poly1305_donna' directory contains the unmodified source code forked from poly1305-donna from <a href="https://github.com/floodyberry/poly1305-donna">https://github.com/floodyberry/poly1305-donna</a></p>
+
+<h1>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EXAMPLES</h1>
+
+<pre lang="sourceCode"><code>from poly1305_donna import (
+    self_test, get_key, authenticate, verify,
+)
+print('Power-On Self Test result: ' + str(self_test()))
+msg = 'Hello world'
+print('\nTest class methods - authenticate, verify')
+kr = get_key()
+auth = authenticate(kr, msg)
+
+bad_kr = get_key()
+bad_msg = msg + '1'
+bad_auth = authenticate(kr, bad_msg)
+
+print('Good: %s\nBad auth: %s\nBad kr: %s\nBad msg: %s' % (
+    str(verify(auth, kr, msg)),
+    str(verify(bad_auth, kr, msg)),
+    str(verify(auth, bad_kr, msg)),
+    str(verify(auth, kr, bad_msg))
+))
+</code></pre>
+
+<p>Alternately, run the test script that is shipped:</p>
+
+<pre lang="sourceCode"><code>python -m poly1305_donna.test
+</code></pre>
+
+<p>To run a simple benchmark:</p>
+
+<pre lang="sourceCode"><code>python -m poly1305_donna.benchmark
+</code></pre>
+
+<h1>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>INSTALLATION</h1>
+
+<p>Using pip:</p>
+
+<pre><code>pip install 'git+https://github.com/sundarnagarajan/py_poly1305-donna.git'
+</code></pre>
+
+<p>Using setup.py: </p>
+
+<pre><code>python setup.py install
+</code></pre>
+
+<h1>
+<a id="build--install-requirements" class="anchor" href="#build--install-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>BUILD / INSTALL REQUIREMENTS</h1>
+
+<p><em>GNU/Linux:</em> </p>
+
+<ul>
+<li>Python Tested on 2.7.6, 3.4.3, pypy 2.7.10 (pypy 4.0.1) </li>
+<li>cffi &gt;= 1.0.0 </li>
+<li>six </li>
+<li>Python.h (libpython-dev on Debian-like systems) </li>
+<li>gcc (build-essential on Debian-like systems)</li>
+</ul>
+
+<h1>
+<a id="notes" class="anchor" href="#notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NOTES</h1>
+
+<p>py_poly1305_donna does not offer an API for incremental update and HMAC calculation.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/sundarnagarajan/py_poly1305-donna">Py poly1305-donna</a> is maintained by <a href="https://github.com/sundarnagarajan">sundarnagarajan</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
