@@ -49,7 +49,7 @@ https://github.com/floodyberry/poly1305-donna
 EXAMPLES
 ========
 
-.. code:: python
+::
 
     from poly1305_donna import (
         self_test, get_key, authenticate, verify,
@@ -73,13 +73,13 @@ EXAMPLES
 
 Alternately, run the test script that is shipped:
 
-.. code:: python
+::
 
     python -m poly1305_donna.test
 
 To run a simple benchmark:
 
-.. code:: python
+::
 
     python -m poly1305_donna.benchmark
 

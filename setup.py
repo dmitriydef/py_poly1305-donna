@@ -15,7 +15,7 @@ PACKAGE DATA
 '''
 # You _SHOULD_ set these
 name = 'poly1305_donna'
-version = '0.11.14'   # oldver: '0.11.13'
+version = '0.11.15'   # oldver: '0.11.14'
 url = 'https://github.com/sundarnagarajan/py_poly1305-donna'
 download_url = '%s/tree/%s' % (url, version)
 description = 'Python wrapper around poly1305_donna by floodberry'
